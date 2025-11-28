@@ -1,0 +1,26 @@
+@import "tailwindcss";
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Rubik';
+}
+body{
+min-width: 320px;
+  min-height: 100vh;
+  @apply bg-slate-900
+}
+.header{
+  background-image: url(/public/imgs/worldmap.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@font-face {
+  font-family: 'Oswald';
+  src: url(/public/fonts/Oswald/static/Oswald-Regular.ttf);
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url(/public/fonts/Oswald/static/Rubik-Medium.ttf);
+}
