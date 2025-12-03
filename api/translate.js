@@ -14,7 +14,9 @@ export default async function handler(req, res) {
 
     const response = await openai.responses.create({
       model: "gpt-4o-mini",
-      input: `Translate this text to ${lang}: ${text}`,
+      input: `Translate the following text from any language to the target language. 
+Return only the translated text, with no introduction, comments, or explanation—just the translated text.
+ ${lang}: ${text}`,
     });
 
     res.status(200).json({
