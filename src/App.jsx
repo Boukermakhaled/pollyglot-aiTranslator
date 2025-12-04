@@ -6,7 +6,7 @@ import Header from './compounents/Header'
 import Trans from './compounents/Trans'
 function App() {
   return (
-    <div className='container p-0 mx-auto w-full bg-white rounded-t-4xl'>
+    <div className='container p-0 mx-auto  w-full bg-white rounded-t-4xl'>
     <Header />
     <Trans />
     </div>

@@ -20,7 +20,12 @@ export default function Trans(){
     //ai 
    const url = 'https://polly-glot-claud.samedxkhaled.workers.dev'
    async function handleTranslate() {
+    if(text == '' || language.lang == ''){
+      setErr('please fill a text and choose a language')
+      return;
+    }
     setLoading(true)
+
   try {
     const response = await fetch("../api/translate", {
       method: "POST",
@@ -42,7 +47,7 @@ export default function Trans(){
 
   } catch (e) {
     setLoading(false)
-    setErr(true);
+    setErr('something wrong please try again');
     console.log("error:", e);
   }
 }
@@ -53,14 +58,14 @@ export default function Trans(){
         <section className="trans p-5 mt-10"> 
             <div className="content border-5  border-slate-800 rounded-lg mx-auto p-7 flex flex-col gap-10">
                 <div className="input-block flex flex-col gap-5 justify-center items-center">
-            <h1 className="title text-blue-800 font-bold text-2xl md:text-4xl">Text to translate 👇</h1>
+            <h1 className="title text-blue-800 font-bold text-xl md:text-4xl">Text to translate 👇</h1>
             <textarea className="resize-none w-11/12 h-40 10/12 p-5 text-lg bg-gray-200 rounded-3xl" name="to-translate" value={text} onChange={(e) => {
                 setText(e.target.value)
             }}></textarea>
             </div>
             <div className="results flex flex-col items-center gap-10 w-full justify-center">
            {loading && (<CircularIndeterminate />)}
-           {err && (<FilledAlerts />)}
+           {err && (<FilledAlerts msg={err}/>)}
             {
             !loading && !result && !err && (<div className="output-block w-full flex flex-col gap-5 justify-center items-center">
             <h1 className="title text-blue-800 font-bold text-xl md:text-4xl">Select a language 👇</h1>
